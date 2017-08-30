@@ -1,7 +1,10 @@
 # Theory of Computation Deterministic Finite Automata Implementation
 
-blah blah blah content
-blah blah blah source code
+Early implementation is dfa\_v1.js
+
+
+![initialDFAsketch](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/initialDFAsketch.png?raw=true)
+
 
 
 
