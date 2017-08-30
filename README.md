@@ -6,6 +6,10 @@ Early implementation is dfa\_v1.js
 ![initialDFAsketch](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/initialDFAsketch.png?raw=true)
 
 
+Project Requirements Implementation is zeroOne.js
+
+
+![zeroesThenOnes](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/zeroesThenOnesDFA.png?raw=true)
 
 
 ---
