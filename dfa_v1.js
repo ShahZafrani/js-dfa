@@ -68,4 +68,6 @@ function validateStream(inputString, currentState) {
   
 }
 
-console.log(validateStream("aaa", start));
+// console.log(validateStream("aaa", start));
+// console.log(process.argv[2]);
+console.log(validateStream(process.argv[2], start));
