@@ -12,7 +12,7 @@
     <img src="/images/zeroesThenOnesDFA.png" style='width:50%;' border="0" alt="Null">
   </div>
   <div id="DFA">
-    <input id="streamInput" label="Stream Input" value="01">
+    <input id="streamInput" label="Stream Input" value="01" onkeydown="if (event.keyCode == 13) { beginValidation()}">
     <button onclick="beginValidation()">Validate Stream</button>
   </div>
   <div id="transitionDiv">
