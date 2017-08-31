@@ -1,8 +1,8 @@
 # Theory of Computation Deterministic Finite Automata Implementation
 
-Project Requirements Implementation is zeroOne.js
+To run this project, use your favorite localhost solution (http-server npm package works well) and navigate to index.html in your browser. 
 
-
+This project implements the following DFA.
 ![zeroesThenOnes](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/zeroesThenOnesDFA.png?raw=true)
 
 ### Original Assignment Instructions
