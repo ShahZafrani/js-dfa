@@ -1,106 +1,154 @@
-const start = "START";
-const state1 = "STATE 1";
-const state2 = "STATE 2"; //acceptance state
-const rejState = "State 3";
+//output text
 const fin = "Input Stream Accepted";
 const rej = "Input Stream Rejected: ";
 const err = "Input Stream Rejected due to Invalid Character: ";
 
+//declare listDiv here so we can assign it later once the page is rendered
 var listDiv = null;
 
+//declare states here
+const start = "START";
+const stateA = "STATE A";
+const stateB = "STATE B"; //acceptance state
+const stateC = "State C";
+
+
+// declare state transitions here
+function handleStartState(inputChar){
+ switch(inputChar) {
+     case '0': {
+       return stateA;
+       break;
+     }
+     case '1': {
+       return stateC;
+       break;
+     }
+     default: {
+       return err + inputChar;
+     }
+  }
+}
+
+function handleStateA(inputChar){
+   switch(inputChar) {
+     case '0': {
+       return stateA;
+       break;
+     }
+     case '1': {
+       return stateB;
+       break;
+     }
+     default: {
+       return err + inputChar;
+     }
+   }
+}
+
+function handleStateB(inputChar){
+   switch(inputChar) {
+     case '0': {
+       return stateC;
+       break;
+     }
+     case '1': {
+       return stateB;
+       break;
+     }
+     default: {
+       return err + inputChar;
+     }
+   }
+}
+
+function handleStateC(inputChar){
+   switch(inputChar) {
+     case '0': {
+       return stateC;
+       break;
+     }
+     case '1': {
+       return stateC;
+       break;
+     }
+     default: {
+       return err + inputChar;
+     }
+   }
+}
+
+//recursive function that does the heavy lifting
 function validateStream(inputString, currentState) {
-  console.log("Current State is: " + currentState + ", Remaining Input Stream: " + inputString);
+  //display the dfa's 'logic' on the page
   var node = document.createElement("li");
   currentOutputText="Current State is: " + currentState + ", Remaining Input Stream: " + inputString;
   listDiv.appendChild(node);
   var text = document.createTextNode(currentOutputText);
   node.appendChild(text);
   
+  //check if we still have inputs to process
   if(inputString.length > 0) {
+    //execute the appropriate transition according to which state we are currently in
      switch(currentState) {
        case start: {
-         switch(inputString[0]) {
-           case '0': {
-             return validateStream(inputString.slice(1), state1);
-             break;
-           }
-           case '1': {
-             return validateStream(inputString.slice(1), rejState);
-             break;
-           }
-           default: {
-             return err + inputString[0];
-           }
+         var nextState = handleStartState(inputString[0]);
+         if(nextState.indexOf(err) !== -1){
+           return nextState;
+         } else {
+           return validateStream(inputString.slice(1), nextState);
          }
          break;
        }
-       case state1: {
-         switch(inputString[0]) {
-           case '0': {
-             return validateStream(inputString.slice(1), state1);
-             break;
-           }
-           case '1': {
-             return validateStream(inputString.slice(1), state2);
-             break;
-           }
-           default: {
-             return err + inputString[0];
-           }
+       case stateA: {
+         var nextState = handleStateA(inputString[0]);
+         if(nextState.indexOf(err) !== -1){
+           return nextState;
+         } else {
+           return validateStream(inputString.slice(1), nextState);
          }
          break;
        }
-       case state2: {
-         switch(inputString[0]) {
-           case '0': {
-             return validateStream(inputString.slice(1), rejState);
-             break;
-           }
-           case '1': {
-             return validateStream(inputString.slice(1), state2);
-             break;
-           }
-           default: {
-             return err + inputString[0];
-           }
+       case stateB: {
+         var nextState = handleStateB(inputString[0]);
+         if(nextState.indexOf(err) !== -1){
+           return nextState;
+         } else {
+           return validateStream(inputString.slice(1), nextState);
          }
          break;
        }
-       case rejState: {
-         switch(inputString[0]) {
-           case '0': {
-             return validateStream(inputString.slice(1), rejState);
-             break;
-           }
-           case '1': {
-             return validateStream(inputString.slice(1), rejState);
-             break;
-           }
-           default: {
-             return err + inputString[0];
-           }
+       case stateC: {
+         var nextState = handleStateC(inputString[0]);
+         if(nextState.indexOf(err) !== -1){
+           return nextState;
+         } else {
+           return validateStream(inputString.slice(1), nextState);
          }
          break;
        }
      }
-  } else if (currentState == state2) {
+  } else if (currentState == stateB) {
+      //acceptance state (stateB in our case) goes here
       return fin;
   } else {
     return rej + "stream ended at " + currentState;
   }
 }
 
+
+  //function called when html button is pressed
 function beginValidation(){
   var input = document.getElementById("streamInput").value;
   listDiv = document.getElementById("transitionList");
+  //clear list from previous run
   listDiv.innerHTML = '';
+  //run the dfa and store the output
   var output = validateStream(input.trim(), start);
   var text = document.createTextNode(output);
   var resultsNode = document.getElementById("results");
   resultsNode.innerHTML = '';
+  //diplay final state
   resultsNode.appendChild(text);
 }
 
-//process.argv[2] is the first command line argument
-// var input = process.argv[2];
-// console.log(validateStream(input, start));

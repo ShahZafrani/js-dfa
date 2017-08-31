@@ -4,24 +4,25 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
  <script src="zeroOne.js"></script>
 </head>
-<p>Check out the project repository <a href="https://github.com/ShahZafrani/ja-dfa">Here</a></p>
-<div id=description>
-  <h1>Deterministic Finite Automata</h1>
-  <h3>This DFA will only accept input that follow the language: {0*1*}</h3>
-  <img src="/images/zeroesThenOnesDFA.png" style='width:50%;' border="0" alt="Null">
-</div>
-<div id="DFA">
-  <input id="streamInput" label="Stream Input" value="01">
-  <button onclick="beginValidation()">Validate Stream</button>
-</div>
-<div id="transitionDiv">
-  <ul id="transitionList">
-    
-  </ul>
-  <h3 id="results"></h3>
-</div>
-<br>
-<div class="node-container" id="node-container">
-
-</div>
+<body>
+  <p>Check out the project repository <a href="https://github.com/ShahZafrani/js-dfa">Here</a></p>
+  <div id="description" class="container">
+    <h1>Deterministic Finite Automata</h1>
+    <h3>This DFA will only accept input that follow the language: {0*1*}</h3>
+    <img src="/images/zeroesThenOnesDFA.png" style='width:50%;' border="0" alt="Null">
+  </div>
+  <div id="DFA">
+    <input id="streamInput" label="Stream Input" value="01">
+    <button onclick="beginValidation()">Validate Stream</button>
+  </div>
+  <div id="transitionDiv">
+    <ul id="transitionList">
+      
+    </ul>
+    <h3 id="results"></h3>
+  </div>
+  <br>
+  <div class="node-container" id="node-container">
+  </div>
+</body>
 </html>
