@@ -4,7 +4,7 @@
 To run this project, use your favorite localhost solution (http-server npm package works well) and navigate to index.html in your browser. Or try it out at https://shahzain.io/labs/js-dfa/index.html
 
 This project implements the following DFA.
-![zeroesThenOnes](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/zeroesThenOnesDFA.png?raw=true)
+![zeroesThenOnes](https://raw.githubusercontent.com/ShahZafrani/js-dfa/master/images/zeroesThenOnesDFA.svg?raw=true)
 
 ### Original Assignment Instructions
 
