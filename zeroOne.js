@@ -7,10 +7,10 @@ const err = "Input Stream Rejected due to Invalid Character: ";
 var listDiv = null;
 
 //declare states here
-const start = "START";
-const stateA = "STATE A";
-const stateB = "STATE B"; //acceptance state
-const stateC = "State C";
+const start = "q0";
+const stateA = "q1";
+const stateB = "q2"; //acceptance state
+const stateC = "q3";
 
 
 // declare state transitions here
