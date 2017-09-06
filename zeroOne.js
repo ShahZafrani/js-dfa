@@ -144,6 +144,9 @@ function validateStream(inputString, currentState) {
          break;
        }
      }
+  } else if (currentState == start) {
+      //acceptance state (stateB in our case) goes here
+      return fin;
   } else if (currentState == stateB) {
       //acceptance state (stateB in our case) goes here
       return fin;
