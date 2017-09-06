@@ -11,18 +11,17 @@ const start = "q0";
 const stateA = "q1";
 const stateB = "q2"; //acceptance state
 const stateC = "q3";
+const stateD = "q4";
 
 
 // declare state transitions here
 function handleStartState(inputChar){
  switch(inputChar) {
      case '0': {
-       return stateA;
-       break;
+       return stateD;
      }
      case '1': {
-       return stateC;
-       break;
+       return stateB;
      }
      default: {
        return err + inputChar;
@@ -34,11 +33,9 @@ function handleStateA(inputChar){
    switch(inputChar) {
      case '0': {
        return stateA;
-       break;
      }
      case '1': {
        return stateB;
-       break;
      }
      default: {
        return err + inputChar;
@@ -50,11 +47,9 @@ function handleStateB(inputChar){
    switch(inputChar) {
      case '0': {
        return stateC;
-       break;
      }
      case '1': {
        return stateB;
-       break;
      }
      default: {
        return err + inputChar;
@@ -66,11 +61,23 @@ function handleStateC(inputChar){
    switch(inputChar) {
      case '0': {
        return stateC;
-       break;
      }
      case '1': {
        return stateC;
-       break;
+     }
+     default: {
+       return err + inputChar;
+     }
+   }
+}
+
+function handleStateD(inputChar){
+   switch(inputChar) {
+     case '0': {
+       return stateD;
+     }
+     case '1': {
+       return stateB;
      }
      default: {
        return err + inputChar;
@@ -127,8 +134,20 @@ function validateStream(inputString, currentState) {
          }
          break;
        }
+       case stateD: {
+         var nextState = handleStateD(inputString[0]);
+         if(nextState.indexOf(err) !== -1){
+           return nextState;
+         } else {
+           return validateStream(inputString.slice(1), nextState);
+         }
+         break;
+       }
      }
   } else if (currentState == stateB) {
+      //acceptance state (stateB in our case) goes here
+      return fin;
+  } else if (currentState == stateD) {
       //acceptance state (stateB in our case) goes here
       return fin;
   } else {
