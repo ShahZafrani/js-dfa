@@ -7,21 +7,20 @@ const err = "Input Stream Rejected due to Invalid Character: ";
 var listDiv = null;
 
 //declare states here
-const start = "q0";
-const stateA = "q1";
-const stateB = "q2"; //acceptance state
-const stateC = "q3";
-const stateD = "q4";
+const start = "q0"; //acceptance state
+const stateA = "q1"; //acceptance state
+const stateB = "q2"; 
+
 
 
 // declare state transitions here
 function handleStartState(inputChar){
  switch(inputChar) {
      case '0': {
-       return stateD;
+       return start;
      }
      case '1': {
-       return stateB;
+       return stateA;
      }
      default: {
        return err + inputChar;
@@ -32,10 +31,10 @@ function handleStartState(inputChar){
 function handleStateA(inputChar){
    switch(inputChar) {
      case '0': {
-       return stateA;
+       return stateB;
      }
      case '1': {
-       return stateB;
+       return stateA;
      }
      default: {
        return err + inputChar;
@@ -46,35 +45,7 @@ function handleStateA(inputChar){
 function handleStateB(inputChar){
    switch(inputChar) {
      case '0': {
-       return stateC;
-     }
-     case '1': {
        return stateB;
-     }
-     default: {
-       return err + inputChar;
-     }
-   }
-}
-
-function handleStateC(inputChar){
-   switch(inputChar) {
-     case '0': {
-       return stateC;
-     }
-     case '1': {
-       return stateC;
-     }
-     default: {
-       return err + inputChar;
-     }
-   }
-}
-
-function handleStateD(inputChar){
-   switch(inputChar) {
-     case '0': {
-       return stateD;
      }
      case '1': {
        return stateB;
@@ -125,33 +96,12 @@ function validateStream(inputString, currentState) {
          }
          break;
        }
-       case stateC: {
-         var nextState = handleStateC(inputString[0]);
-         if(nextState.indexOf(err) !== -1){
-           return nextState;
-         } else {
-           return validateStream(inputString.slice(1), nextState);
-         }
-         break;
-       }
-       case stateD: {
-         var nextState = handleStateD(inputString[0]);
-         if(nextState.indexOf(err) !== -1){
-           return nextState;
-         } else {
-           return validateStream(inputString.slice(1), nextState);
-         }
-         break;
-       }
      }
   } else if (currentState == start) {
-      //acceptance state (stateB in our case) goes here
+      //acceptance state (start in our case) goes here
       return fin;
-  } else if (currentState == stateB) {
-      //acceptance state (stateB in our case) goes here
-      return fin;
-  } else if (currentState == stateD) {
-      //acceptance state (stateB in our case) goes here
+  } else if (currentState == stateA) {
+      //acceptance state (stateA in our case) goes here
       return fin;
   } else {
     return rej + "stream ended at " + currentState;
