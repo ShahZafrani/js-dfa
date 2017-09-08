@@ -29,3 +29,6 @@ button {
 li {
   list-style-type: urdu;
 }
+#dfa-diagram {
+  width: 100% !important;
+}
