@@ -18,4 +18,4 @@ This project implements the following DFA.
 >Each group needs to do a 10 min presentation around 2 weeks later. Each student in the group will be graded equally unless it was reported to me and confirmed that some student did not do sufficient work for the project.
 
 ---
-Created by Linda Vu, Solomon Walker, Teddy (insertLastNameHere), and Shah Zafrani for CS6041 Theory of Computation at Kennesaw State University
+Created by Linda Vu and Shah Zafrani for CS6041 Theory of Computation at Kennesaw State University
