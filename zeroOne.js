@@ -69,6 +69,31 @@ function drawTransition(output){
   node.appendChild(text);
 }
 
+//Function for stacks
+function stack(){
+    this.size = 0; 
+    this.box = {};
+}
+
+stack.prototype.push = function(input){ //this inherits the properties of stack
+    var size = ++this.size;
+    this.box[size] = input;   
+}
+
+stack.prototype.pop = function(){ //this inherits the properties of stack
+    var size = this.size;
+    deletedInput;
+    
+    if(size){
+        deletedInput = this.box[size];
+        
+        delete this.box[size];
+        this.size--;
+        
+        return deletedOutput;
+    }
+} //end of stack function
+
   //function called when html button is pressed
 function beginValidation(){
   var input = document.getElementById("streamInput").value;
