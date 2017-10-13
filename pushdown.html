@@ -1,0 +1,32 @@
+<!doctype html>
+<head>
+<title>Push Down Automata</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+ <script src="zeroNoneNpda.js"></script>
+</head>
+<body>
+  <p>Check out the project repository <a href="https://github.com/ShahZafrani/js-dfa">Here</a></p>
+  <div id="description" class="container">
+    <h1>Push Down Automata</h1>
+    <h3>This PDA will only accept input that follow the language: {0<sup>n</sup> 1<sup>n</sup>}</h3>
+    <!--<img id="pda-diagram" src="images/zeroesThenOnesPDA.svg" style='width:50%;' border="0" alt="Null">-->
+  </div>
+  <h3>Current Stack:</h3>
+  <h1 id="stack">
+    
+  </h1>
+  <div id="PDA">
+    <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
+    <button onclick="beginValidation()">Validate Stream</button>
+  </div>
+  <div id="transitionDiv">
+    <ul id="transitionList">
+      
+    </ul>
+    <h3 id="results"></h3>
+  </div>
+  <br>
+  <div class="node-container" id="node-container">
+  </div>
+</body>
+</html>
