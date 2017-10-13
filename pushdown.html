@@ -5,28 +5,29 @@
  <script src="zeroNoneNpda.js"></script>
 </head>
 <body>
-  <p>Check out the project repository <a href="https://github.com/ShahZafrani/js-dfa">Here</a></p>
+  <p>Check out the project repository <a href="https://github.com/ShahZafrani/js-dfa/tree/PushdownAutomata">Here</a></p>
   <div id="description" class="container">
     <h1>Push Down Automata</h1>
     <h3>This PDA will only accept input that follow the language: {0<sup>n</sup> 1<sup>n</sup>}</h3>
     <!--<img id="pda-diagram" src="images/zeroesThenOnesPDA.svg" style='width:50%;' border="0" alt="Null">-->
   </div>
-  <h3>Current Stack:</h3>
-  <h1 id="stack">
-    
-  </h1>
-  <div id="PDA">
-    <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
-    <button onclick="beginValidation()">Validate Stream</button>
-  </div>
-  <div id="transitionDiv">
-    <ul id="transitionList">
-      
-    </ul>
-    <h3 id="results"></h3>
-  </div>
-  <br>
-  <div class="node-container" id="node-container">
+  <div style="display: table">
+    <div style="display: flex">
+      <div id="stackDiv" class ="container" style="display:table-cell; padding-right:5vw">
+        <h3>Current Stack:</h3>
+        <br>
+        <h1 id="stack" class="vertical-text"></h1>
+      </div>
+      <div id="PDA" style="display:table-cell">
+        <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
+        <input type="range" title="Adjust Transition Speed" min="50" max="1500" value="750" class="slider" id="speedSlider"> 
+        <button id="validate-button" onclick="beginValidation()">Validate Stream</button>
+        <ul id="transitionList" style="padding-left:5vw">
+          
+        </ul>
+        <h3 id="results"></h3>
+      </div>
+    </div>
   </div>
 </body>
 </html>

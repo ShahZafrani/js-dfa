@@ -6,6 +6,7 @@ const err = "Input Stream Rejected due to: ";
 var listDiv = null;
 var stackDiv = null;
 var resultsNode = null;
+var speedSlider = null;
 var stack = "";
 
 var timerWait = 750;
@@ -14,6 +15,10 @@ window.onload = function() {
   listDiv = document.getElementById("transitionList");
   stackDiv = document.getElementById("stack");
   resultsNode = document.getElementById("results");
+  speedSlider = document.getElementById("speedSlider");
+  speedSlider.oninput = function() {
+    timerWait = this.value;
+  }
 }
 
 //declare pda in this js object
@@ -65,10 +70,12 @@ const pda = {
 
   //function called when html button is pressed
 function beginValidation(){
+  document.getElementById("validate-button").disabled = true;
   var input = document.getElementById("streamInput").value;
   resetDisplay();
   //run the pda using the declared start state
   validateStream(input.trim(), pda.startState);
+
 }
 
 //recursive function that does the heavy lifting
@@ -129,6 +136,7 @@ function drawStack(){
 function drawResult(output){
   var text = document.createTextNode(output);
   resultsNode.appendChild(text);
+  document.getElementById("validate-button").disabled = false;
 }
 
 function resetDisplay() {
