@@ -9,6 +9,10 @@ var resultsNode = null;
 var speedSlider = null;
 var stack = "";
 
+window.onload = function(){
+  initializeDisplay();
+};
+
 var timerWait = 750;
 //declare listDiv here so we can assign it later once the page is rendered
 function initializeDisplay(){
