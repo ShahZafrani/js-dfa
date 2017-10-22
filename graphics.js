@@ -1,12 +1,22 @@
 var dataset = Object.keys(pda.states);
+var svg = null;
+
+// load the external svg from a file
+d3.xml("images/editable-svg.svg").mimeType("image/svg+xml").get(function(error, xml) {
+  if (error) throw error;
+  document.getElementById("svg-container").appendChild(xml.documentElement);
+  initSVG();
+});
   
+function initSVG(){
   
-var svg = d3.select("svg");
+  svg = d3.select("svg");
+  
+  var el = d3.selectAll("ellipse");
+  
+  el.style("fill", "d2b9ff");
+  el.style("fill-opacity", "1");
+}
+  
 
-var el = d3.selectAll("ellipse");
-
-var el1 = d3.selectAll("ellipse#svg-1");
-
-el1.style("fill", "steelblue");
-el1.style("fill-opacity", "1");
 
