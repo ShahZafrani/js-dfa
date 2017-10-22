@@ -86,12 +86,15 @@ function beginValidation(){
 
 //recursive function that does the heavy lifting
 function validateStream(inputString, currentState) {
+  resetColors();
   //display the dfa's 'logic' on the page
   drawTransition("Current State is: " + currentState + ", Remaining Input Stream: " + inputString);
   //check if we still have inputs to process
   if(inputString.length > 0) {
     //get next state
     var nextState = getNextState(currentState, inputString[0]);
+    
+    
     //update stack display
     drawStack();
     //check if next state contains the error message, meaning there was an invalid input
@@ -99,6 +102,7 @@ function validateStream(inputString, currentState) {
       drawResult(nextState);
     } else {
       //recurse through the function with the first element of the string sliced off
+      highlight(nextState + inputString[0], "red");
       return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
   } else if ((pda.states[currentState].isAccept === true) && (stack === '')){

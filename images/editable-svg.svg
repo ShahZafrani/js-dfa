@@ -11,33 +11,33 @@
  <g stroke="null">
   <title>Layer 1</title>
   <g id="q0-0" stroke="null">
-   <ellipse fill="none" stroke-width="1.5" stroke-opacity="null" cx="184.50039" cy="65.36086" id="svg_12" rx="29" ry="29" stroke="#000"/>
+   <ellipse fill="none" stroke-width="1.5" stroke-opacity="1" fill-opacity="0" cx="184.50039" cy="65.36086" id="svg_12" rx="29" ry="29" stroke="#000"/>
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m205.57863,83.10262l4.5,-9.00003l4.49901,9.00003l-8.99901,0z" id="svg_19" stroke="#000" transform="rotate(-150 210.078 78.603)"/>
    <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="150.49028" y="32.35439" id="svg_31" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">0 / ε / a</text>
   </g>
   <g id="q0-1" stroke="null">
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m283.58264,124.10561l4.5,-9l4.49899,9l-8.99899,0z" id="svg_9" stroke="#000" transform="rotate(90 288.082 119.606)"/>
    <line fill="none" stroke-width="1.5" x1="224.50005" y1="119.35918" x2="292.50005" y2="119.35918" id="svg_5" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#000"/>
-   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="227.4946" y="112.35887" id="svg_33" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">1 / a / ε</text>
+   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="227.4946" y="112.35887" id="svg_33" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">ε / ε / ε</text>
   </g>
   <g id="q1-1" stroke="null">
-   <ellipse fill="none" stroke-width="1.5" stroke-opacity="null" cx="334.50879" cy="65.36086" id="svg_17" rx="29" ry="29" stroke="#000"/>
+   <ellipse fill="none" stroke-width="1.5" stroke-opacity="1" fill-opacity="0" cx="334.50879" cy="65.36086" id="svg_17" rx="29" ry="29" stroke="#000"/>
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m355.58664,83.10262l4.5,-9.00003l4.49899,9.00003l-8.99899,0z" id="svg_20" stroke="#000" transform="rotate(-150 360.086 78.603)"/>
    <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="300.49868" y="32.35439" id="svg_32" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">1 / a / ε</text>
   </g>
   <g id="q1-0" stroke="null">
    <line fill="none" stroke-width="1.5" x1="374.50005" y1="119.35918" x2="442.50005" y2="119.35918" id="svg_10" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#000"/>
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m433.58264,124.10461l4.5,-9l4.5,9l-9,0z" id="svg_11" stroke="#000" transform="rotate(90 438.083 119.605)"/>
-   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="377.50299" y="112.35887" id="svg_34" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">0 / ε / b</text>
+   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="377.50299" y="112.35887" id="svg_34" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">ε / ε / ε</text>
   </g>
   <g id="q2-0" stroke="null">
-   <ellipse fill="none" stroke-width="1.5" stroke-opacity="null" cx="484.5172" cy="65.36086" id="svg_18" rx="29" ry="29" stroke="#000"/>
+   <ellipse fill="none" stroke-width="1.5" stroke-opacity="1" fill-opacity="0" cx="484.5172" cy="65.36086" id="svg_18" rx="29" ry="29" stroke="#000"/>
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m505.59564,83.10255l4.5,-9.00002l4.49896,9.00002l-8.99896,0z" id="svg_21" stroke="#000" transform="rotate(-150 510.095 78.603)"/>
    <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="437.50635" y="32.35439" id="svg_35" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">0 , 1 / ε / b</text>
   </g>
      
   <g stroke="null" id="circleQ0">
-    <ellipse ry="39.5" rx="39.5" id="svg_1" cy="117.35918" cx="185.00005" stroke-width="1.5" fill="#d2b9ff" stroke="#000"/>  
+    <ellipse ry="39.5" rx="39.5" id="svg_1" cy="117.35918" cx="185.00005" stroke-width="1.5" fill="#d2b9ff" stroke="#000"/>
     <ellipse ry="35" rx="35" id="svg_6" cy="117.35918" cx="185.00845" stroke-width="1.5" fill="none" stroke="#000"/>
     <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="170.4914" y="118.3592" id="svg_25" font-size="24" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">q</text>
     <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="185.49224" y="132.35999" id="svg_28" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">0</text>
@@ -53,15 +53,15 @@
   <g stroke="null" id="circleQ2">
    <ellipse ry="39.5" rx="39.5" id="svg_3" cy="117.35918" cx="485.00005" stroke-width="1.5" fill="#d2b9ff" stroke="#000"/>
    <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="469.50816" y="118.3592" id="svg_27" font-size="24" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">q</text>
-   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="484.50897" y="132.35999" id="svg_30" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">2</text>    
+   <text fill="#000000" stroke="#000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="484.50897" y="132.35999" id="svg_30" font-size="20" font-family="'Times New Roman', Times, serif" text-anchor="start" xml:space="preserve">2</text>
   </g>
      
   <g stroke="null" id="Start">
    <g id="svg_14" stroke="null">
    <path fill="#000000" stroke-width="1.5" stroke-opacity="null" d="m133.58264,124.10561l4.5,-9l4.49899,9l-8.99899,0z" id="svg_7" stroke="#000" transform="rotate(90 138.082 119.606)"/>
    <line fill="none" stroke-width="1.5" x1="74.50005" y1="119.35918" x2="142.50005" y2="119.35918" id="svg_8" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#000"/>
-   <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="20" id="svg_15" y="115" x="85.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Start</text>   
-  </g> 
+   <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="20" id="svg_15" y="115" x="85.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Start</text>
+  </g>
   </g>
  </g>
 </svg>
