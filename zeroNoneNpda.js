@@ -36,11 +36,11 @@ const pda = {
       0:{
         transition: "q0",
         pop: "",
-        push: "$"
+        push: "a"
       },
       1: {
         transition: "q1",
-        pop: "$",
+        pop: "a",
         push: ""
       },
       isAccept:true
@@ -49,11 +49,11 @@ const pda = {
       0:{
         transition: "q2",
         pop: "",
-        push: "@"
+        push: "b"
       },
       1: {
         transition: "q1",
-        pop: "$",
+        pop: "a",
         push: ""
       },
       isAccept:true
@@ -62,12 +62,12 @@ const pda = {
       0:{
         transition: "q2",
         pop: "",
-        push: "@"
+        push: "b"
       },
       1: {
         transition: "q2",
         pop: "",
-        push: "@"
+        push: "b"
       },
       isAccept: false
     }
