@@ -1,5 +1,7 @@
 var dataset = Object.keys(pda.states);
-  
+
+
+// load the external svg from a file
 d3.xml("images/editable-svg.svg").mimeType("image/svg+xml").get(function(error, xml) {
   if (error) throw error;
   document.getElementById("svg-container").appendChild(xml.documentElement);
