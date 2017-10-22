@@ -20,7 +20,6 @@
   <path stroke="#000" id="svg_9" d="m251.58264,184.10561l4.5,-9l4.49899,9l-8.99899,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
   <line stroke="#000" style="vector-effect: non-scaling-stroke;" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_10" y2="179.35918" x2="410.50005" y1="179.35918" x1="342.50005" stroke-width="1.5" fill="none"/>
   <path stroke="#000" style="vector-effect: non-scaling-stroke;" id="svg_11" d="m401.58264,184.10461l4.5,-9l4.5,9l-9,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
-  <path stroke="#ffffff" id="svg_14" d="m97.01666,3.05375l0.745,-1.30375l0.745,1.30375l-1.49,0z" stroke-width="1.5" fill="#ffffff"/>
   <path stroke="#000" id="svg_19" d="m173.57863,143.10262l4.5,-9.00003l4.49901,9.00003l-8.99901,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
   <path stroke="#000" id="svg_20" d="m323.58664,143.10262l4.5,-9.00003l4.49899,9.00003l-8.99899,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
   <path stroke="#000" id="svg_21" d="m473.59564,144.10262l4.5,-9.00003l4.49899,9.00003l-8.99899,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
@@ -37,4 +36,4 @@
   <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="20" id="svg_34" y="172.35887" x="345.50299" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">0 / E / b</text>
   <text xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="20" id="svg_35" y="92.35439" x="405.50635" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">0 , 1 / E / b</text>
  </g>
-</svg>
+</svg>SAS
