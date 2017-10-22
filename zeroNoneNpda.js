@@ -11,7 +11,7 @@ var stack = "";
 
 var timerWait = 750;
 //declare listDiv here so we can assign it later once the page is rendered
-window.onload = function() {
+function initializeDisplay(){
   listDiv = document.getElementById("transitionList");
   stackDiv = document.getElementById("stack");
   resultsNode = document.getElementById("results");
@@ -23,48 +23,50 @@ window.onload = function() {
 
 //declare pda in this js object
 const pda = {
-  //starting state should be declared exactly as the corresponding object key is 
+  //starting state should be declared exactly as the corresponding object key is
   startState: "q0",
   //vocabulary should be defined as a string with no delimiting
   vocabulary: "01",
-  q0: {
-    0:{
-      transition: "q0",
-      pop: "",
-      push: "$"
+  states: {
+    q0: {
+      0:{
+        transition: "q0",
+        pop: "",
+        push: "$"
+      },
+      1: {
+        transition: "q1",
+        pop: "$",
+        push: ""
+      },
+      isAccept:true
     },
-    1: {
-      transition: "q1",
-      pop: "$",
-      push: ""
+    q1: {
+      0:{
+        transition: "q2",
+        pop: "",
+        push: "@"
+      },
+      1: {
+        transition: "q1",
+        pop: "$",
+        push: ""
+      },
+      isAccept:true
     },
-    isAccept:true
-  },
-  q1: {
-    0:{
-      transition: "q2",
-      pop: "",
-      push: "@"
-    },
-    1: {
-      transition: "q1",
-      pop: "$",
-      push: ""
-    },
-    isAccept:true
-  },
-  q2: {
-    0:{
-      transition: "q2",
-      pop: "",
-      push: "@"
-    },
-    1: {
-      transition: "q2",
-      pop: "",
-      push: "@"
-    },
-    isAccept: false
+    q2: {
+      0:{
+        transition: "q2",
+        pop: "",
+        push: "@"
+      },
+      1: {
+        transition: "q2",
+        pop: "",
+        push: "@"
+      },
+      isAccept: false
+    }
   }
 }
 
@@ -95,7 +97,7 @@ function validateStream(inputString, currentState) {
       //recurse through the function with the first element of the string sliced off
       return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
-  } else if ((pda[currentState].isAccept === true) && (stack === '')){
+  } else if ((pda.states[currentState].isAccept === true) && (stack === '')){
       //check if current state is an acceptance state and if stack is empty
       drawResult(fin);
   } else {
@@ -106,13 +108,13 @@ function validateStream(inputString, currentState) {
 
 function getNextState(currentState, input){
   if(pda.vocabulary.includes(input)) {
-    if((stack === '') && (pda[currentState][input].pop !== '')){
+    if((stack === '') && (pda.states[currentState][input].pop !== '')){
       return err + " stack implosion";
-    } else if (stack.charAt(stack.length - 1) === pda[currentState][input].pop) {
+    } else if (stack.charAt(stack.length - 1) === pda.states[currentState][input].pop) {
       stack = stack.substr(0, stack.length - 1);
     }
-    stack += pda[currentState][input].push;
-   return pda[currentState][input].transition;
+    stack += pda.states[currentState][input].push;
+   return pda.states[currentState][input].transition;
   } else {
     return err + " invalid character: " + input;
   }

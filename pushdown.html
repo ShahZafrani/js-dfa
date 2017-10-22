@@ -2,14 +2,15 @@
 <head>
 <title>Push Down Automata</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
- <script src="zeroNoneNpda.js"></script>
+  <script src="lib/d3.v4.min.js"></script>
+  <script src="zeroNoneNpda.js"></script>
 </head>
 <body>
   <p>Check out the project repository <a href="https://github.com/ShahZafrani/js-dfa/tree/PushdownAutomata">Here</a></p>
   <div id="description" class="container">
     <h1>Push Down Automata</h1>
     <h3>This PDA will only accept input that follow the language: {0<sup>n</sup> 1<sup>n</sup>}</h3>
-    <!--<img id="pda-diagram" src="images/zeroesThenOnesPDA.svg" style='width:50%;' border="0" alt="Null">-->
+    <section></section>
   </div>
   <div style="display: table">
     <div style="display: flex">
@@ -20,7 +21,7 @@
       </div>
       <div id="PDA" style="display:table-cell">
         <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
-        <input type="range" title="Adjust Transition Speed" min="50" max="1500" value="750" class="slider" id="speedSlider"> 
+        <input type="range" title="Adjust Transition Speed" min="50" max="1500" value="750" class="slider" id="speedSlider">
         <button id="validate-button" onclick="beginValidation()">Validate Stream</button>
         <ul id="transitionList" style="padding-left:5vw">
           
@@ -29,5 +30,7 @@
       </div>
     </div>
   </div>
+  
+  <script src="graphics.js"></script>
 </body>
 </html>
