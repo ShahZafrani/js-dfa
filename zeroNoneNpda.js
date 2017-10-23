@@ -86,9 +86,9 @@ function beginValidation(){
 
 //recursive function that does the heavy lifting
 function validateStream(inputString, currentState) {
-  resetColors();
-  //display the dfa's 'logic' on the page
-  drawTransition("Current State is: " + currentState + ", Remaining Input Stream: " + inputString);
+  resetColors(transitions, transitionKeys, "black");
+  resetColors(states, stateKeys, "d2b9ff");
+  //display the pda's 'logic' on the page
   //check if we still have inputs to process
   if(inputString.length > 0) {
     //get next state
@@ -102,7 +102,9 @@ function validateStream(inputString, currentState) {
       drawResult(nextState);
     } else {
       //recurse through the function with the first element of the string sliced off
-      highlight(nextState + inputString[0], "red");
+      highlight(transitions, nextState + inputString[0], "red");
+      highlight(states, nextState, "cyan");
+      drawTransition("Current State is: " + nextState + ", Remaining Input Stream: " + inputString);
       return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
   } else if ((pda.states[currentState].isAccept === true) && (stack === '')){

@@ -1,6 +1,8 @@
 var dataset = Object.keys(pda.states);
 var svg = null;
 var transitions = null;
+var states = null;
+var stateKeys = null;
 var transitionKeys = null;
 
 
@@ -31,6 +33,9 @@ function initSVG(){
   q20ellipse = d3.select("#q2-0").selectAll("ellipse");
   q20path = d3.select("#q2-0").selectAll("path");
   
+  q0ellipse = d3.select("#circleQ0").selectAll("ellipse");
+  q1ellipse = d3.select("#circleQ1").selectAll("ellipse");
+  q2ellipse = d3.select("#circleQ2").selectAll("ellipse");
   transitions = {
     "q00": [q00ellipse, q00path],
     "q01": [q01ellipse, q01path],
@@ -38,27 +43,30 @@ function initSVG(){
     "q11": [q11ellipse, q11path],
     "q20": [q20ellipse, q20path]
   }
-  
   transitionKeys = Object.keys(transitions);
-  
-  // var q01 = null;
-  // var q11 = null;
-  // var q10 = null;
-  // var q201 = null;
-  
+  states = {
+    "q0": [q0ellipse],
+    "q1": [q1ellipse],
+    "q2": [q2ellipse]
+  }
+  stateKeys = Object.keys(states);
 }
 
-function highlight(group, color){
-  for(let i = 0; i < transitions[group].length; i++) {
-    transitions[group][i].attr("style","stroke: " +color + "; fill: " + color + ";");
+function highlight(collection, group, color){
+  for(let i = 0; i < collection[group].length; i++) {
+    collection[group][i].attr("style","stroke: " +color + "; fill: " + color + ";");
   }
 }
+
+function highlightState() {
   
-function resetColors() {
+}
+  
+function resetColors(group, keys, color) {
     //iterate through all elements
-    for(let i = 0; i < transitionKeys.length; i++) {
-      let key = transitionKeys[i];
-      highlight(key, "black");
+    for(let i = 0; i < keys.length; i++) {
+      let key = keys[i];
+      highlight(group ,key, color);
     }
 }
 
