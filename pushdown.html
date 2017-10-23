@@ -14,8 +14,6 @@
     <h4>Using the language: L = {0<sup>n</sup> 1<sup>n</sup>| n ≥ 0} </h4>
     <h4>S → 0 S 1</h4>
     <h4>S → &#949;</h4>
-    <section id="svg-container">
-    </section>
   </div>
   <div style="display: table">
     <div style="display: flex">
@@ -25,15 +23,18 @@
         <h1 id="stack" class="vertical-text"></h1>
       </div>
       <div id="PDA" style="display:table-cell">
-        <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
-        <input type="range" title="Adjust Transition Speed" min="50" max="1500" value="750" class="slider" id="speedSlider">
-        <button id="validate-button" onclick="beginValidation()">Validate Stream</button>
-        <ul id="transitionList" style="padding-left:5vw">
-          
-        </ul>
-        <h3 id="results"></h3>
+        <section id="svg-container"></section>
       </div>
     </div>
+  </div>
+  <div>
+    <input id="streamInput" label="Stream Input" value="000111" onkeydown="if (event.keyCode == 13) { beginValidation()}">
+    <input type="range" title="Adjust Transition Speed" min="50" max="1500" value="750" class="slider" id="speedSlider">
+    <button id="validate-button" onclick="beginValidation()">Validate Stream</button>
+    <ul id="transitionList" style="padding-left:5vw">
+      
+    </ul>
+    <h3 id="results"></h3>
   </div>
   
   <script src="graphics.js"></script>

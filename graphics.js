@@ -41,7 +41,8 @@ function initSVG(){
     "q01": [q01ellipse, q01path],
     "q10": [q10ellipse, q10path],
     "q11": [q11ellipse, q11path],
-    "q20": [q20ellipse, q20path]
+    "q20": [q20ellipse, q20path],
+    "q21": [q20ellipse, q20path]
   }
   transitionKeys = Object.keys(transitions);
   states = {

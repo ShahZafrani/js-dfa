@@ -86,6 +86,7 @@ function beginValidation(){
 
 //recursive function that does the heavy lifting
 function validateStream(inputString, currentState) {
+  var currStack = stack;
   resetColors(transitions, transitionKeys, "black");
   resetColors(states, stateKeys, "d2b9ff");
   //display the pda's 'logic' on the page
@@ -105,7 +106,7 @@ function validateStream(inputString, currentState) {
       //recurse through the function with the first element of the string sliced off
       highlight(transitions, nextState + inputString[0], "red");
       highlight(states, nextState, "goldenrod");
-      drawTransition("Current State is: " + nextState + ", Remaining Input Stream: " + inputString);
+      drawTransition("Current State is: " + nextState + ", Remaining Input Stream: " + inputString + ", Current Stack Value: " + currStack);
       return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
   } else if ((pda.states[currentState].isAccept === true) && (stack === '')){
