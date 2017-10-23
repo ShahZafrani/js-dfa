@@ -99,20 +99,23 @@ function validateStream(inputString, currentState) {
     drawStack();
     //check if next state contains the error message, meaning there was an invalid input
     if(nextState.indexOf(err) !== -1){
+      highlight(states, currentState, "red");
       drawResult(nextState);
     } else {
       //recurse through the function with the first element of the string sliced off
       highlight(transitions, nextState + inputString[0], "red");
-      highlight(states, nextState, "cyan");
+      highlight(states, nextState, "goldenrod");
       drawTransition("Current State is: " + nextState + ", Remaining Input Stream: " + inputString);
       return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
   } else if ((pda.states[currentState].isAccept === true) && (stack === '')){
       //check if current state is an acceptance state and if stack is empty
+      highlight(states, currentState, "cyan");
       drawResult(fin);
   } else {
       //current state is not an acceptance state so it must be rejected
-    drawResult(rej + "stream ended at " + currentState + ", and stack value was: " + stack);
+      highlight(states, currentState, "red");
+      drawResult(rej + "stream ended at " + currentState + ", and stack value was: " + stack);
   }
 }
 
@@ -148,6 +151,7 @@ function drawStack(){
 function drawResult(output){
   var text = document.createTextNode(output);
   resultsNode.appendChild(text);
+  resultsNode.scrollIntoView();
   document.getElementById("validate-button").disabled = false;
 }
 
