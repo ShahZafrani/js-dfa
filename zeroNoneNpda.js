@@ -3,18 +3,18 @@ const fin = "Input Stream Accepted";
 const rej = "Input Stream Rejected: ";
 const err = "Input Stream Rejected due to: ";
 
+//declare variables outside a function scope to be set later
 var listDiv = null;
 var stackDiv = null;
 var resultsNode = null;
 var speedSlider = null;
 var stack = "";
+var timerWait = 750;
 
+//assign values once page loads (this helps avoid a race condition)
 window.onload = function(){
   initializeDisplay();
 };
-
-var timerWait = 750;
-//declare listDiv here so we can assign it later once the page is rendered
 function initializeDisplay(){
   listDiv = document.getElementById("transitionList");
   stackDiv = document.getElementById("stack");
@@ -86,47 +86,58 @@ function beginValidation(){
 
 //recursive function that does the heavy lifting
 function validateStream(inputString, currentState) {
+  //currStack used for display purposes later
   var currStack = stack;
+  //set transition and state colors to default
   resetColors(transitions, transitionKeys, "black");
   resetColors(states, stateKeys, "d2b9ff");
-  //display the pda's 'logic' on the page
+  
   //check if we still have inputs to process
   if(inputString.length > 0) {
     //get next state
     var nextState = getNextState(currentState, inputString[0]);
     
-    
     //update stack display
     drawStack();
-    //check if next state contains the error message, meaning there was an invalid input
+    
+    //check if next state contains the error message, meaning there was an invalid input or stack imploded
     if(nextState.indexOf(err) !== -1){
       highlight(states, currentState, "red");
       drawResult(nextState);
     } else {
-      //recurse through the function with the first element of the string sliced off
+      //highlight the relevant state and transition
       highlight(transitions, nextState + inputString[0], "red");
       highlight(states, nextState, "goldenrod");
-      drawTransition("Current State is: " + nextState + ", Remaining Input Stream: " + inputString + ", Current Stack Value: " + currStack);
-      return setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
+      drawTransition(nextState, inputString, currStack);
+      //recurse through the function with the first element of the string sliced off
+      setTimeout(function(){ validateStream(inputString.slice(1), nextState); }, timerWait);
     }
   } else if ((pda.states[currentState].isAccept === true) && (stack === '')){
       //check if current state is an acceptance state and if stack is empty
+      //display final status, color ending state, and display accept
       highlight(states, currentState, "cyan");
+      drawTransition(currentState, inputString, currStack);
       drawResult(fin);
   } else {
       //current state is not an acceptance state so it must be rejected
+      //display final status, color ending state, and display accept
       highlight(states, currentState, "red");
+      drawTransition(currentState, inputString, currStack);
       drawResult(rej + "stream ended at " + currentState + ", and stack value was: " + stack);
   }
 }
 
 function getNextState(currentState, input){
+  //check if input is part of the vocab
   if(pda.vocabulary.includes(input)) {
+    // if stack is empty and there is a pop function, reject input with explanation
     if((stack === '') && (pda.states[currentState][input].pop !== '')){
       return err + " stack implosion";
     } else if (stack.charAt(stack.length - 1) === pda.states[currentState][input].pop) {
+      //if the item at the top of the stack matches this transition's pop item: pop it
       stack = stack.substr(0, stack.length - 1);
     }
+    //add the push item of this transition to the top of the stack
     stack += pda.states[currentState][input].push;
    return pda.states[currentState][input].transition;
   } else {
@@ -136,7 +147,8 @@ function getNextState(currentState, input){
 
 // helper functions
 
-function drawTransition(output){
+function drawTransition(state, input, stackVal){
+  var output = "Current State is: " + state + " | Remaining Input Stream: " + input + " | Current Stack Value: " + stackVal;
   var node = document.createElement("li");
   listDiv.appendChild(node);
   var text = document.createTextNode(output);
